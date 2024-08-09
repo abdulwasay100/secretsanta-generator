@@ -2,7 +2,7 @@
 FROM openjdk:8u151-jdk-alpine3.7
 
 # Set environment variable for application home
-ENV APP_HOME /app
+ENV APP_HOME=/usr/src/app
 
 # Create the application directory
 RUN mkdir -p $APP_HOME
@@ -11,7 +11,7 @@ RUN mkdir -p $APP_HOME
 WORKDIR $APP_HOME
 
 # Copy the JAR file into the container
-COPY target/secretsanta-0.0.1-SNAPSHOT.jar app.jar
+COPY target/secretsanta-0.0.1-SNAPSHOT.jar $APP_HOME/app.jar
 
 # Expose port 8009
 EXPOSE 8009
